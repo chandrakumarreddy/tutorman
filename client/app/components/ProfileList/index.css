@@ -1,33 +1,29 @@
-fieldset {
-  display: block;
-  margin-inline-start: 2px;
-  margin-inline-end: 2px;
-  padding-block-start: 0.35em;
-  padding-inline-start: 0.75em;
-  padding-inline-end: 0.75em;
-  padding-block-end: 0.625em;
-  min-inline-size: min-content;
-  border-width: 2px !important;
-  border-style: groove !important;
-  border-image: initial !important;
-  margin: 16px;
-  box-shadow: 3px 3px 3px #000;
-  border-color: #4c9eab;
+.card {
+  margin-top: 10px;
 }
 
-legend {
-  width: auto;
-  font-size: 24px;
+.card-header-title {
+  font-size: 25px;
   font-style: italic;
 }
 
-.options {
+.header_edit {
   float: right;
+  margin-right: 15px;
+  margin-top: 16px;
 }
 
-.image-tag {
-  width: 25%;
-  display: block;
+.edit {
+  font-size: 21px;
+}
+
+.header_delete {
+  font-size: 18px;
+}
+
+.image_profileList {
+  width: 35%;
   margin: auto;
+  display: block;
   border-radius: 50%;
 }

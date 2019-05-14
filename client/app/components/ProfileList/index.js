@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { Link } from "react-router-dom";
 import "./index.css";
 
 export class ProfileList extends PureComponent {
@@ -32,50 +33,36 @@ export class ProfileList extends PureComponent {
     return (
       <div>
         {this.state.trainerList.map(list => (
-          <div>
-            <fieldset>
-              <legend>{list.name}</legend>
-
-              <div
-                className="options"
-                onClick={() => {
-                  this.props.history.push({
-                    state: {
-                      lists: list
-                    },
-                    pathname: "/UpdateProfile"
-                  });
-                }}
-              >
-                &#x270E;{" "}
-              </div>
-
-              <div className="columns is-mobile app">
-                <div className="column" />
-
-                <div className="column">
-                  <span>{list.qualification}</span>
-                  <br />
-
-                  <span>{list.exp}</span>
-                  <br />
-
-                  <span>{list.mail}</span>
-                  <br />
-                </div>
-
-                <div className="column">
-                  <span>{list.qualification}</span>
-                  <br />
-
-                  <span>{list.exp}</span>
-                  <br />
-
-                  <span>{list.mail}</span>
-                  <br />
+          <div className="card">
+            <header className="card-header">
+              <p className="card-header-title">{list.name}</p>
+              <Link to={`update/${list.name}`} className="header_edit edit">
+                &#x270E;
+              </Link>
+              <Link to="update" className="header_edit header_delete">
+                &#128465;
+              </Link>
+            </header>
+            <div className="card-content">
+              <div className="content">
+                <div className="columns is-mobile">
+                  <div className="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+                    <img
+                      src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX2578170.jpg"
+                      alt=""
+                      className="image_profileList"
+                    />
+                  </div>
+                  <div className="column">
+                    <span>Qualification: {list.qualification}</span>
+                    <br />
+                    <span>Experience: {list.exp}</span>
+                    <br />
+                    <span>Mail-ID: {list.mail}</span>
+                  </div>
                 </div>
               </div>
-            </fieldset>
+            </div>
           </div>
         ))}
       </div>
