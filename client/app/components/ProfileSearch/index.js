@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import ProfileListComp from "../ProfileList/ProfileList";
-import "./ProfileSearch.css";
+import "./index.css";
 
 export class ProfileSearch extends PureComponent {
   render() {

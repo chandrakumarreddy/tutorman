@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import "./ProfileList.css";
+import "./index.css";
 
 export class ProfileList extends PureComponent {
   constructor() {
@@ -51,13 +51,7 @@ export class ProfileList extends PureComponent {
               </div>
 
               <div className="columns is-mobile app">
-                <div className="column">
-                  <img
-                    src={require("../images/male.png")}
-                    alt=""
-                    className="image-tag"
-                  />
-                </div>
+                <div className="column" />
 
                 <div className="column">
                   <span>{list.qualification}</span>

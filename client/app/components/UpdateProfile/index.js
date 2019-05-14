@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import "./UpdateProfile.css";
+import "./index.css";
 
 export class UpdateProfile extends PureComponent {
   render() {
