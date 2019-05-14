@@ -1,0 +1,23 @@
+.Home {
+	margin-top: 40px;
+}
+.Home-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 30px;
+}
+.department,
+.emailer {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	margin-top: 30px;
+}
+
+.email {
+	width: 75%;
+}
+
+.submit-email {
+	width: 100%;
+	margin-top: 20px;
+}

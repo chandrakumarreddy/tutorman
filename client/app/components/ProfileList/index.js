@@ -14,14 +14,14 @@ export class ProfileList extends PureComponent {
     this.setState({
       trainerList: [
         {
-          name: "abc",
-          qualification: "abc",
+          name: "Vinay Bheema",
+          qualification: "Btech MA LLB",
           exp: "2",
           mail: "abc@abc.com"
         },
         {
-          name: "def",
-          qualification: "def",
+          name: "Surendra G",
+          qualification: "Doctor",
           exp: "2",
           mail: "def@def.com"
         }

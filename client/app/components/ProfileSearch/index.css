@@ -4,8 +4,8 @@
 
 .filter-background {
 	background-color: #4c9eab;
-	border: 1px solid #000;
-	box-shadow: 2px 2px 2px #000;
+	width: 100%;
+	margin: 0 auto !important;
 }
 
 .input-margin {

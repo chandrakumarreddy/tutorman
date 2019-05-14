@@ -1,0 +1,10 @@
+.card-custom-top {
+	padding: 30px 0;
+}
+.label {
+	text-align: center !important;
+}
+.is-horizontal {
+	width: 80%;
+	margin: auto;
+}

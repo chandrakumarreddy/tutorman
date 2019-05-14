@@ -5,7 +5,7 @@ import "./index.css";
 export class ProfileSearch extends PureComponent {
   render() {
     return (
-      <div className="container">
+      <div>
         <div className="columns is-mobile profilesearch filter-background">
           <div className="column">
             <input type="text" className="input-margin" placeholder="a" />
