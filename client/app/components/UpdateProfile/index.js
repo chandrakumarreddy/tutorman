@@ -28,7 +28,7 @@ export class UpdateProfile extends PureComponent {
                 </div>
                 <div className="editors row-split">
                   <div className="column-split">
-                    <span className="sub-title">Alternate Mobile</span>
+                    <span className="sub-title">Desgination</span>
                   </div>
                   <div className="column-split1">
                     <input type="text" value="" className="text-editors" />
@@ -61,6 +61,14 @@ export class UpdateProfile extends PureComponent {
                 <div className="editors row-split">
                   <div className="column-split">
                     <span className="sub-title">Qualification</span>
+                  </div>
+                  <div className="column-split1">
+                    <input type="text" value="" className="text-editors" />
+                  </div>
+                </div>
+                <div className="editors row-split">
+                  <div className="column-split">
+                    <span className="sub-title">Age</span>
                   </div>
                   <div className="column-split1">
                     <input type="text" value="" className="text-editors" />
@@ -114,6 +122,14 @@ export class UpdateProfile extends PureComponent {
                   </div>
                   <div className="column-split1">
                     <input type="text" value="" className="text-editors" />
+                  </div>
+                </div>
+                <div className="editors row-split">
+                  <div className="column-split">
+                    <span className="sub-title">Upload Photo</span>
+                  </div>
+                  <div className="column-split1">
+                    <input type="file" className="text-editors" />
                   </div>
                 </div>
                 <div className="editors row-split">
