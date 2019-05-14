@@ -1,0 +1,33 @@
+fieldset {
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+  border-width: 2px !important;
+  border-style: groove !important;
+  border-image: initial !important;
+  margin: 16px;
+  box-shadow: 3px 3px 3px #000;
+  border-color: #4c9eab;
+}
+
+legend {
+  width: auto;
+  font-size: 24px;
+  font-style: italic;
+}
+
+.options {
+  float: right;
+}
+
+.image-tag {
+  width: 25%;
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+}
