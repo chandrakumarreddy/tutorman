@@ -1,4 +1,4 @@
-.legend-update-color {
+  .legend-update-color {
     color: #4c9eab;
   }
   
@@ -22,7 +22,16 @@
   .sub-title {
     font-weight: bold;
     font-style: italic;
+    float: left;
+    margin-left: 30%;
+  }
+
+  .main-sub-title {
+    font-weight: bold;
+    font-style: italic;
     float: right;
+    margin-left: 30%;
+    margin-top: 15px;
   }
 
   .value-title {
@@ -31,10 +40,14 @@
   }
 
   .image_pdf {
-    width: 80%;
+    width: 40%;
     margin-left: auto;
     border-radius: 50%;
     display: block;
+  }
+
+  .pdf_bottom {
+    margin-bottom: 20px;
   }
 
   /* Create two equal columns that floats next to each other */

@@ -4,7 +4,7 @@ import "./index.css";
 export class UpdateProfile extends PureComponent {
   render() {
     return (
-      <div className="container">
+      <div className="pdf_bottom">
         <div class="card">
           <div class="card-content">
             <div class="content" />
@@ -19,13 +19,13 @@ export class UpdateProfile extends PureComponent {
                     />
                   </div>
                   <div className="column-split1">
-                  <span className="sub-title">Name: Vinay Bheema</span>
+                  <span className="main-sub-title">Name: Vinay Bheema</span>
                   <br />
-                  <span className="sub-title">Mobile No: +91 - 1234567890</span>
+                  <span className="main-sub-title">Mobile No: +91 - 1234567890</span>
                   <br />
-                  <span className="sub-title">Desgination: SA</span>
+                  <span className="main-sub-title">Desgination: SA</span>
                   <br />
-                  <span className="sub-title">Email: vinay.bheema@gmail.com</span>
+                  <span className="main-sub-title">Email: vinay.bheema@gmail.com</span>
                   </div>
                 </div>
                 <div className="editors row-split">
@@ -60,8 +60,6 @@ export class UpdateProfile extends PureComponent {
                     <span className="value-title">28</span>
                   </div>
                 </div>
-              </div>
-              <div className="column">
                 <div className="editors row-split">
                   <div className="column-split">
                     <span className="sub-title">Experience</span>
@@ -110,9 +108,14 @@ export class UpdateProfile extends PureComponent {
                     <span className="value-title">IT</span>
                   </div>
                 </div>
-              </div>
+              </div>              
             </div>
           </div>
+          <footer class="card-footer">
+            <a href="#" class="card-footer-item">Print</a>
+            <a href="#" class="card-footer-item">Save</a>
+            <a href="#" class="card-footer-item">Delete</a>
+          </footer>
         </div>
       </div>
     );
