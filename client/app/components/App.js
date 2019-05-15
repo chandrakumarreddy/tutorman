@@ -4,6 +4,7 @@ import Home from "./Home";
 import Header from "./Header";
 import Profile from "./ProfileSearch/";
 import UpdateProfile from "./UpdateProfile/";
+import PdfProfile from "./pdfFormat/";
 
 const App = props => {
 	return (
@@ -13,6 +14,7 @@ const App = props => {
 				<Switch>
 					<Route path="/profile" component={Profile} />
 					<Route path="/update/:id" component={UpdateProfile} />
+					<Route path="/pdf/:id" component={PdfProfile} />
 					<Route path="/" component={Home} />
 				</Switch>
 			</BrowserRouter>

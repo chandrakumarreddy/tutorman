@@ -35,7 +35,9 @@ export class ProfileList extends PureComponent {
         {this.state.trainerList.map(list => (
           <div className="card">
             <header className="card-header">
-              <p className="card-header-title">{list.name}</p>
+              <Link to={`pdf/${list.name}`}>
+                <p className="card-header-title">{list.name}</p>
+              </Link>
               <Link to={`update/${list.name}`} className="header_edit edit">
                 &#x270E;
               </Link>
