@@ -4,21 +4,24 @@ import Home from "./Home";
 import Header from "./Header";
 import Profile from "./ProfileSearch/";
 import UpdateProfile from "./UpdateProfile/";
-import PdfProfile from "./pdfFormat/";
+import Register from "./Register";
+import Pdf from "./pdfFormat";
 
 const App = props => {
 	return (
-		<div className="container">
-			<BrowserRouter>
-				<Header />
+		<BrowserRouter>
+			<Header />
+			<div className="container">
 				<Switch>
 					<Route path="/profile" component={Profile} />
-					<Route path="/update/:id" component={UpdateProfile} />
-					<Route path="/pdf/:id" component={PdfProfile} />
-					<Route path="/" component={Home} />
+					<Route path="/update" component={UpdateProfile} />
+					<Route path="/register" component={Register} />
+					<Route path="/pdf" component={Pdf} />
+					<Route path="/" component={Home} exact />
+					<Route component={() => <div>Not found</div>} />
 				</Switch>
-			</BrowserRouter>
-		</div>
+			</div>
+		</BrowserRouter>
 	);
 };
 

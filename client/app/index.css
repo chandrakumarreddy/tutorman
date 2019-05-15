@@ -1,2 +1,10 @@
 @import "../node_modules/bulma/css/bulma.css";
 
+input:focus,
+a:focus,
+a:hover,
+.button:focus,
+.button:hover {
+	outline: none !important;
+	border: initial !important;
+}

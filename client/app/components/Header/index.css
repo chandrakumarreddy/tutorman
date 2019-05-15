@@ -1,7 +1,8 @@
-.navbar-custom{
+.navbar-custom {
 	background: darkkhaki !important;
-    padding: 0 20px;
+	padding: 0 20px;
+	margin-bottom: 30px;
 }
-.button-transparent{
+.button-transparent {
 	background: transparent !important;
 }
