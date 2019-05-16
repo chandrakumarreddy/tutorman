@@ -8,13 +8,13 @@ module.exports = {
       secure: false,
       requireTLS: true,
       auth: {
-        user: "",
-        pass: ""
+        user: "chandrapenugonda655@gmail.com",
+        pass: "9676988120@Cc"
       }
     });
     try {
       let info = await transporter.sendMail({
-        from: "",
+        from: "chandrapenugonda655@gmail.com",
         to: recipientMail,
         subject: "Hello ✔ ",
         text: `Hello world`,

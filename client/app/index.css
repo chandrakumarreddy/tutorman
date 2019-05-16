@@ -6,5 +6,12 @@ a:hover,
 .button:focus,
 .button:hover {
 	outline: none !important;
-	border: initial !important;
+}
+
+.container-custom {
+	border: 1px solid grey;
+	box-sizing: border-box;
+}
+.submit-email:hover {
+	color: #fff !important;
 }

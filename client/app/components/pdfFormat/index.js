@@ -19,13 +19,17 @@ export class UpdateProfile extends PureComponent {
                     />
                   </div>
                   <div className="column-split1">
-                  <span className="main-sub-title">Name: Vinay Bheema</span>
-                  <br />
-                  <span className="main-sub-title">Mobile No: +91 - 1234567890</span>
-                  <br />
-                  <span className="main-sub-title">Desgination: SA</span>
-                  <br />
-                  <span className="main-sub-title">Email: vinay.bheema@gmail.com</span>
+                    <span className="main-sub-title">Name: Vinay Bheema</span>
+                    <br />
+                    <span className="main-sub-title">
+                      Mobile No: +91 - 1234567890
+                    </span>
+                    <br />
+                    <span className="main-sub-title">Desgination: SA</span>
+                    <br />
+                    <span className="main-sub-title">
+                      Email: vinay.bheema@gmail.com
+                    </span>
                   </div>
                 </div>
                 <div className="editors row-split">
@@ -108,13 +112,19 @@ export class UpdateProfile extends PureComponent {
                     <span className="value-title">IT</span>
                   </div>
                 </div>
-              </div>              
+              </div>
             </div>
           </div>
           <footer class="card-footer">
-            <a href="#" class="card-footer-item">Print</a>
-            <a href="#" class="card-footer-item">Save</a>
-            <a href="#" class="card-footer-item">Delete</a>
+            <a href="#" class="card-footer-item">
+              Download
+            </a>
+            <a href="#" class="card-footer-item">
+              Chat
+            </a>
+            <a href="#" class="card-footer-item">
+              forward
+            </a>
           </footer>
         </div>
       </div>

@@ -1,5 +1,5 @@
 .Home {
-	margin-top: 40px;
+	padding: 40px 0;
 }
 .Home-wrapper {
 	width: 50%;
@@ -23,4 +23,11 @@
 
 .center {
 	text-align: center;
+}
+
+.error {
+	color: red;
+}
+.success {
+	color: green;
 }

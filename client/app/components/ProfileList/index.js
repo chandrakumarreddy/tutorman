@@ -14,12 +14,14 @@ export class ProfileList extends PureComponent {
     this.setState({
       trainerList: [
         {
+          id: 1,
           name: "Vinay Bheema",
           qualification: "Btech MA LLB",
           exp: "2",
           mail: "abc@abc.com"
         },
         {
+          id: 2,
           name: "Surendra G",
           qualification: "Doctor",
           exp: "2",
@@ -33,7 +35,7 @@ export class ProfileList extends PureComponent {
     return (
       <div>
         {this.state.trainerList.map(list => (
-          <div className="card">
+          <div className="card" key={list.id}>
             <header className="card-header">
               <Link to={`pdf/${list.name}`}>
                 <p className="card-header-title">{list.name}</p>

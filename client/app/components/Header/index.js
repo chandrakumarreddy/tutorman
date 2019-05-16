@@ -3,48 +3,73 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 export default function Header() {
-  return (
-    <nav
-      className="navbar navbar-custom"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div className="navbar-brand">
-        <Link className="navbar-item" to="/">
-          <img
-            src="https://bulma.io/images/bulma-logo.png"
-            width="112"
-            height="28"
-          />
-        </Link>
+	return (
+		<nav
+			className="navbar navbar-custom"
+			role="navigation"
+			aria-label="main navigation"
+		>
+			<div className="container">
+				<div className="navbar-brand">
+					<Link
+						className="navbar-item button-transparent-brand"
+						to="/"
+					>
+						Tutioner
+					</Link>
 
-        <a
-          role="button"
-          className="navbar-burger burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </a>
-      </div>
+					<a
+						role="button"
+						className="navbar-burger burger"
+						aria-label="menu"
+						aria-expanded="false"
+						data-target="navbarBasicExample"
+					>
+						<span aria-hidden="true" />
+						<span aria-hidden="true" />
+						<span aria-hidden="true" />
+					</a>
+				</div>
 
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <Link className="button button-transparent" to="/register">
-                <strong>Register</strong>
-              </Link>
-              <Link className="button button-transparent" to="/update">
-                update
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
+				<div id="navbarBasicExample" className="navbar-menu">
+					<div className="navbar-start">
+						<div className="buttons">
+							<Link
+								className="navbar-item button-transparent"
+								to="/pdf"
+							>
+								pdf
+							</Link>
+
+							<Link
+								className="navbar-item button-transparent"
+								to="/profile"
+							>
+								profile
+							</Link>
+						</div>
+					</div>
+
+					<div className="navbar-end">
+						<div className="navbar-item">
+							<div className="buttons">
+								<Link
+									className=" button-transparent"
+									to="/register"
+								>
+									Register
+								</Link>
+								<Link
+									className="button-transparent"
+									to="/update"
+								>
+									update
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	);
 }

@@ -9,9 +9,9 @@ import Pdf from "./pdfFormat";
 
 const App = props => {
 	return (
-		<BrowserRouter>
-			<Header />
-			<div className="container">
+		<div className="container container-custom">
+			<BrowserRouter>
+				<Header />
 				<Switch>
 					<Route path="/profile" component={Profile} />
 					<Route path="/update" component={UpdateProfile} />
@@ -20,8 +20,8 @@ const App = props => {
 					<Route path="/" component={Home} exact />
 					<Route component={() => <div>Not found</div>} />
 				</Switch>
-			</div>
-		</BrowserRouter>
+			</BrowserRouter>
+		</div>
 	);
 };
 
