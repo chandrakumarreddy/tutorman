@@ -39,7 +39,6 @@ module.exports = {
   async getUsers(req, res) {
     try {
       const user = await User.find();
-
       return res.status(200).json(user);
     } catch (err) {
       console.log(err);
@@ -49,7 +48,6 @@ module.exports = {
   async getUsersById(req, res) {
     try {
       const user = await User.findOne({ _id: req.params.id });
-
       return res.status(200).json(user);
     } catch (err) {
       console.log(err);

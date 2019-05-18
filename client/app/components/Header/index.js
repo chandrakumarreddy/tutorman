@@ -47,6 +47,12 @@ export default function Header() {
 							>
 								profile
 							</Link>
+							<Link
+								className="navbar-item button-transparent"
+								to="/admin"
+							>
+								Admin
+							</Link>
 						</div>
 					</div>
 

@@ -6,6 +6,7 @@ import Profile from "./ProfileSearch/";
 import UpdateProfile from "./UpdateProfile/";
 import Register from "./Register";
 import Pdf from "./pdfFormat";
+import Admin from "./Admin";
 
 const App = props => {
 	return (
@@ -17,6 +18,7 @@ const App = props => {
 					<Route path="/update" component={UpdateProfile} />
 					<Route path="/register" component={Register} />
 					<Route path="/pdf" component={Pdf} />
+					<Route path="/admin" component={Admin} />
 					<Route path="/" component={Home} exact />
 					<Route component={() => <div>Not found</div>} />
 				</Switch>

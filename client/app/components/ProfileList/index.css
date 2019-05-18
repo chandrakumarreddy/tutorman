@@ -1,8 +1,12 @@
-.card {
+.card_block {
   padding: 10px 0;
 }
 
-.card-header-title {
+.header_block {
+  display: block !important;
+}
+
+.header_title_block {
   font-size: 25px;
   font-style: italic;
 }
@@ -18,7 +22,9 @@
 }
 
 .header_delete {
-  font-size: 18px;
+  font-size: 20px;
+  border: none;
+  background: none;
 }
 
 .image_profileList {

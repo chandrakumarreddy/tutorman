@@ -36,13 +36,10 @@ export class ProfileList extends PureComponent {
     return (
       <div>
         {this.state.trainerList.map(list => (
-          <div className="card" key={list.id}>
-            <header className="card-header">
+          <div className="card card_block" key={list.id}>
+            <header className="card-header header_block">
               <Link to={`pdf/${list._id}`}>
-                <p className="card-header-title">{list.name}</p>
-              </Link>
-              <Link to={`update/${list._id}`} className="header_edit edit">
-                &#x270E;
+                <p className="card-header-title header_title_block">{list.name}</p>
               </Link>
               <button
                 className="header_edit header_delete"
@@ -50,6 +47,9 @@ export class ProfileList extends PureComponent {
               >
                 &#128465;
               </button>
+              <Link to={`update/${list._id}`} className="header_edit edit">
+                &#x270E;
+              </Link>
             </header>
             <div className="card-content">
               <div className="content">
@@ -62,13 +62,13 @@ export class ProfileList extends PureComponent {
                     />
                   </div>
                   <div className="column">
-                    <span>Qualification: {list._id}</span>
+                    <span><b>Qualification:</b> {list._id}</span>
                     <br />
-                    <span>Experience: {list.experience}</span>
+                    <span><b>Experience:</b> {list.experience}</span>
                     <br />
-                    <span>Mail-ID: {list.email}</span>
+                    <span><b>Mail-ID:</b> {list.email}</span>
                     <br />
-                    <span>Designation: {list.designation}</span>
+                    <span><b>Designation:</b> {list.designation}</span>
                   </div>
                 </div>
               </div>
