@@ -8,16 +8,31 @@ export class ProfileSearch extends PureComponent {
       <div>
         <div className="columns is-mobile profilesearch filter-background">
           <div className="column">
-            <input type="text" className="input-margin" placeholder="a" />
+            <input type="text" className="input-margin" placeholder="Name" />
           </div>
           <div className="column ">
-            <input type="text" className="input-margin" placeholder="b" />
+            <input
+              type="text"
+              className="input-margin"
+              placeholder="Expereience"
+            />
           </div>
           <div className="column">
-            <input type="text" className="input-margin" placeholder="c" />
+            <input
+              type="text"
+              className="input-margin"
+              placeholder="Location"
+            />
           </div>
           <div className="column">
-            <input type="text" className="input-margin" placeholder="d" />
+            <input
+              type="text"
+              className="input-margin"
+              placeholder="Technology"
+            />
+          </div>
+          <div className="column">
+            <button className="searchButton">Search</button>
           </div>
         </div>
         <ProfileListComp {...this.props} />

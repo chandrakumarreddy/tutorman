@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./index.css";
 
 export class ProfileList extends PureComponent {
@@ -11,24 +12,24 @@ export class ProfileList extends PureComponent {
   }
 
   componentDidMount() {
-    this.setState({
-      trainerList: [
-        {
-          id: 1,
-          name: "Vinay Bheema",
-          qualification: "Btech MA LLB",
-          exp: "2",
-          mail: "abc@abc.com"
-        },
-        {
-          id: 2,
-          name: "Surendra G",
-          qualification: "Doctor",
-          exp: "2",
-          mail: "def@def.com"
-        }
-      ]
+    axios.get(`http://localhost:3000/users`).then(res => {
+      const persons = res.data;
+      this.setState({ trainerList: persons });
     });
+  }
+
+  deleteTrainer(id) {
+    axios
+      .delete(`http://localhost:3000/delregister/${id}`)
+      .then(res => {
+        axios.get(`http://localhost:3000/users`).then(res => {
+          const persons = res.data;
+          this.setState({ trainerList: persons });
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -37,15 +38,18 @@ export class ProfileList extends PureComponent {
         {this.state.trainerList.map(list => (
           <div className="card" key={list.id}>
             <header className="card-header">
-              <Link to={`pdf/${list.name}`}>
+              <Link to={`pdf/${list._id}`}>
                 <p className="card-header-title">{list.name}</p>
               </Link>
-              <Link to={`update/${list.name}`} className="header_edit edit">
+              <Link to={`update/${list._id}`} className="header_edit edit">
                 &#x270E;
               </Link>
-              <Link to="update" className="header_edit header_delete">
+              <button
+                className="header_edit header_delete"
+                onClick={this.deleteTrainer.bind(this, list._id)}
+              >
                 &#128465;
-              </Link>
+              </button>
             </header>
             <div className="card-content">
               <div className="content">
@@ -58,11 +62,13 @@ export class ProfileList extends PureComponent {
                     />
                   </div>
                   <div className="column">
-                    <span>Qualification: {list.qualification}</span>
+                    <span>Qualification: {list._id}</span>
                     <br />
-                    <span>Experience: {list.exp}</span>
+                    <span>Experience: {list.experience}</span>
                     <br />
-                    <span>Mail-ID: {list.mail}</span>
+                    <span>Mail-ID: {list.email}</span>
+                    <br />
+                    <span>Designation: {list.designation}</span>
                   </div>
                 </div>
               </div>
