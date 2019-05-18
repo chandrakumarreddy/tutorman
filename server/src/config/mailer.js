@@ -8,18 +8,18 @@ module.exports = {
       secure: false,
       requireTLS: true,
       auth: {
-        user: "chandrapenugonda655@gmail.com",
-        pass: "9676988120@Cc"
+        user: "testemailus400@gmail.com",
+        pass: "Testemail@1"
       }
     });
+    const link = "http://localhost:3000/confirmation_mail/" + confirmationMail;
     try {
       let info = await transporter.sendMail({
-        from: "chandrapenugonda655@gmail.com",
+        from: "testemail400@gmail.com",
         to: recipientMail,
         subject: "Hello ✔ ",
         text: `Hello world`,
-        html:
-          "Click this <a href='" + confirmationMail + "'><span>link</span></a>"
+        html: "Click this <a href='" + link + "'><span>link</span></a>"
       });
 
       return info;
