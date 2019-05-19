@@ -35,6 +35,9 @@ export default function Header() {
 					<div className="navbar-end">
 						<div className="navbar-item">
 							<div className="buttons">
+								<Link className="button-transparent" to="/home">
+									Home
+								</Link>
 								<Link
 									className=" button-transparent"
 									to="/register"

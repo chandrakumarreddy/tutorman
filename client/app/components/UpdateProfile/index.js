@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { update } from "../../actions";
+import { update, getUser } from "../../actions";
 import { connect } from "react-redux";
 import "./index.css";
 
@@ -28,7 +28,13 @@ export class UpdateProfile extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getUser(this.props.match.params.id).then(data =>
+      this.setState({
+        persons: data
+      })
+    );
+  }
 
   handleChange(event) {
     this.setState({
@@ -54,8 +60,8 @@ export class UpdateProfile extends PureComponent {
       .update(
         this.props.match.params.id,
         Object.assign({}, this.state.persons, {
-          deleveries: [this.state.persons.deleveries],
-          technologies: [this.state.persons.technologies]
+          deleveries: this.state.persons.deleveries,
+          technologies: this.state.persons.technologies
         })
       )
       .then(() => this.props.history.push("/"));
@@ -303,6 +309,9 @@ export default connect(
   dispacth => ({
     update(id, user) {
       return dispacth(update(id, user));
+    },
+    getUser(id) {
+      return dispacth(getUser(id));
     }
   })
 )(UpdateProfile);

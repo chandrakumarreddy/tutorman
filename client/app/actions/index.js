@@ -30,3 +30,10 @@ export function update(id, user) {
 		return Promise.resolve();
 	};
 }
+
+export function getUser(id) {
+	return async function(dispatch) {
+		const res = await axios.get(`/users/${id}`);
+		return Promise.resolve(res.data);
+	};
+}
