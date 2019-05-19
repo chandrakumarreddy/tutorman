@@ -21,11 +21,18 @@ module.exports = {
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.id },
-        { $set: req.body }
+        {
+          $set: Object.assign({}, req.body, {
+            photo: req.files.photo.map(item => item.filename)[0],
+            certification: req.files.certification.map(item => item.filename)
+          })
+        },
+        { returnNewDocument: true }
       );
-
       if (user) {
-        return res.status(204);
+        return res.status(204).json({
+          message: "updated"
+        });
       }
     } catch (err) {
       return res.status(500).json({
@@ -36,17 +43,29 @@ module.exports = {
 
   async getUsers(req, res) {
     try {
-      const user = await User.find();
-      return res.status(200).json(user);
+      const users = await User.find({});
+      return res.status(200).json({
+        users: users.map(user =>
+          Object.assign({}, users, { user: `/users/${user._id}` })
+        )
+      });
     } catch (err) {
-      console.log(err);
+      return res.status(500).json({
+        error: "internal server error"
+      });
     }
   },
 
   async getUser(req, res) {
     try {
-      const user = await User.findOne({ _id: req.params.id });
-      return res.status(200).json(user);
+      const user = await User.findById(req.params.id);
+      if (user) {
+        return res.status(200).json(user);
+      }
+      return res.status(404).json({
+        id: typeof req.params.id,
+        message: "no user found"
+      });
     } catch (err) {
       return res.status(500).json({
         error: "internal server error"

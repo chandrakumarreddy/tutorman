@@ -30,17 +30,7 @@ export class UpdateProfile extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    // console.log(window.location.href.substring(window.location.href.lastIndexOf('/') + 1));
-
-    const urlLocation = window.location.href.substring(
-      window.location.href.lastIndexOf("/") + 1
-    );
-    axios.get(`http://localhost:3000/usersById/${urlLocation}`).then(res => {
-      const persons = res.data;
-      this.setState({ persons });
-    });
-  }
+  componentDidMount() {}
 
   handleChange(event) {
     this.setState({
@@ -54,12 +44,13 @@ export class UpdateProfile extends PureComponent {
     e.preventDefault();
     const { persons } = this.state;
     console.log("persons", persons);
-    const data = {name: persons.name}
+    const data = { name: persons.name };
 
-    axios.patch(`http://localhost:3000/patchregister/${persons._id}`, data)
-    .then((response) => {
-      console.log(response);
-    });
+    axios
+      .patch(`http://localhost:3000/patchregister/${persons._id}`, data)
+      .then(response => {
+        console.log(response);
+      });
   }
 
   render() {

@@ -6,7 +6,7 @@ module.exports = {
 	connect() {
 		mongoose.set("useFindAndModify", false);
 		mongoose
-			.connect("mongodb://localhost:27017/tutorman", {
+			.connect(config.mongo_url, {
 				useNewUrlParser: true
 			})
 			.then(() => console.log("connected to db"))

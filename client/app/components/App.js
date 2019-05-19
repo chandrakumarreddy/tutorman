@@ -14,12 +14,12 @@ const App = props => {
 			<BrowserRouter>
 				<Header />
 				<Switch>
-					<Route path="/profile" component={Profile} />
+					<Route path="/register" component={Home} />
 					<Route path="/update" component={UpdateProfile} />
 					<Route path="/register" component={Register} />
 					<Route path="/pdf" component={Pdf} />
 					<Route path="/admin" component={Admin} />
-					<Route path="/" component={Home} exact />
+					<Route path="/" component={Profile} exact />
 					<Route component={() => <div>Not found</div>} />
 				</Switch>
 			</BrowserRouter>

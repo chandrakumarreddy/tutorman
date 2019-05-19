@@ -35,7 +35,7 @@ const UserSchema = new Schema({
 	technologies: {
 		type: [String]
 	},
-	image: {
+	photo: {
 		type: String
 	},
 	dob: {

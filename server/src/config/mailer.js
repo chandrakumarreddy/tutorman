@@ -1,4 +1,5 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer"),
+  config = require("./config");
 
 module.exports = {
   async mailer(recipientMail, confirmationMail) {
@@ -8,8 +9,8 @@ module.exports = {
       secure: false,
       requireTLS: true,
       auth: {
-        user: "testemailus400@gmail.com",
-        pass: "Testemail@1"
+        user: config.nodemialer.email,
+        pass: config.nodemailer.pass
       }
     });
     const link = "http://localhost:3000/confirmation_mail/" + confirmationMail;

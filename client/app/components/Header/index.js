@@ -32,30 +32,6 @@ export default function Header() {
 				</div>
 
 				<div id="navbarBasicExample" className="navbar-menu">
-					<div className="navbar-start">
-						<div className="buttons">
-							<Link
-								className="navbar-item button-transparent"
-								to="/pdf"
-							>
-								pdf
-							</Link>
-
-							<Link
-								className="navbar-item button-transparent"
-								to="/profile"
-							>
-								profile
-							</Link>
-							<Link
-								className="navbar-item button-transparent"
-								to="/admin"
-							>
-								Admin
-							</Link>
-						</div>
-					</div>
-
 					<div className="navbar-end">
 						<div className="navbar-item">
 							<div className="buttons">
