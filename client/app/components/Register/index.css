@@ -22,3 +22,7 @@
 .is-horizantal-custom .button {
 	display: unset;
 }
+
+.card_register {
+	border-radius: 15px !important;
+}

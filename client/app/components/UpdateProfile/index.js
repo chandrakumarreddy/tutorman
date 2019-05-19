@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
-import axios from "axios";
+import { update } from "../../actions";
+import { connect } from "react-redux";
 import "./index.css";
 
 export class UpdateProfile extends PureComponent {
@@ -9,24 +10,21 @@ export class UpdateProfile extends PureComponent {
     this.state = {
       persons: {
         name: "",
+        age: "",
+        email: "",
         phone: "",
         designation: "",
-        email: "",
-        certification: "",
-        dob: "",
-        address: "",
-        qualification: "",
-        age: "",
-        experience: "",
-        domain: "",
-        skills: "",
+        department: "",
+        deleveries: "",
         location: "",
-        industry: ""
+        experience: "",
+        technologies: "",
+        dob: ""
       }
     };
-
+    this.photo = React.createRef();
+    this.certifications = React.createRef();
     this.handleChange = this.handleChange.bind(this);
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -42,7 +40,25 @@ export class UpdateProfile extends PureComponent {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { persons } = this.state;
+    // let cert_files = this.certifications.current.files;
+    // const certifications = [];
+    // for (let key in cert_files) {
+    //   if (cert_files[key].type) {
+    //     certifications.push(cert_files[key]);
+    //   }
+    // }
+    // const fd = new FormData(this.state.persons);
+    // fd.append("photo", this.photo.current.files[0]);
+    // fd.append("certifications", certifications);
+    this.props
+      .update(
+        this.props.match.params.id,
+        Object.assign({}, this.state.persons, {
+          deleveries: [this.state.persons.deleveries],
+          technologies: [this.state.persons.technologies]
+        })
+      )
+      .then(() => this.props.history.push("/"));
   }
 
   render() {
@@ -68,28 +84,13 @@ export class UpdateProfile extends PureComponent {
 
               <div className="editors row-split">
                 <div className="column-split">
-                  <span className="sub-title">Mobile No</span>
+                  <span className="sub-title">Age</span>
                 </div>
                 <div className="column-split1">
                   <input
-                    type="text"
-                    name="phone"
-                    value={this.state.persons.phone}
-                    className="text-editors"
-                    onChange={this.handleChange.bind(this)}
-                  />
-                </div>
-              </div>
-
-              <div className="editors row-split">
-                <div className="column-split">
-                  <span className="sub-title">Desgination</span>
-                </div>
-                <div className="column-split1">
-                  <input
-                    type="text"
-                    name="designation"
-                    value={this.state.persons.designation}
+                    type="number"
+                    name="age"
+                    value={this.state.persons.age}
                     className="text-editors"
                     onChange={this.handleChange.bind(this)}
                   />
@@ -113,26 +114,13 @@ export class UpdateProfile extends PureComponent {
 
               <div className="editors row-split">
                 <div className="column-split">
-                  <span className="sub-title">DOB</span>
+                  <span className="sub-title">Phone</span>
                 </div>
                 <div className="column-split1">
                   <input
                     type="text"
-                    // value={this.state.persons.dob}
-                    className="text-editors"
-                  />
-                </div>
-              </div>
-
-              <div className="editors row-split">
-                <div className="column-split">
-                  <span className="sub-title">Address</span>
-                </div>
-                <div className="column-split1">
-                  <input
-                    type="text"
-                    name="deleveries"
-                    value={this.state.persons.deleveries}
+                    name="phone"
+                    value={this.state.persons.Phone}
                     className="text-editors"
                     onChange={this.handleChange.bind(this)}
                   />
@@ -141,26 +129,58 @@ export class UpdateProfile extends PureComponent {
 
               <div className="editors row-split">
                 <div className="column-split">
-                  <span className="sub-title">Qualification</span>
+                  <span className="sub-title">Designation</span>
                 </div>
                 <div className="column-split1">
                   <input
                     type="text"
-                    // value={this.state.persons.qualification}
+                    value={this.state.persons.designation}
                     className="text-editors"
+                    name="designation"
+                    onChange={this.handleChange.bind(this)}
                   />
                 </div>
               </div>
 
               <div className="editors row-split">
                 <div className="column-split">
-                  <span className="sub-title">Age</span>
+                  <span className="sub-title">Department</span>
                 </div>
                 <div className="column-split1">
                   <input
                     type="text"
-                    name="age"
-                    value={this.state.persons.age}
+                    name="department"
+                    value={this.state.persons.department}
+                    className="text-editors"
+                    onChange={this.handleChange.bind(this)}
+                  />
+                </div>
+              </div>
+
+              <div className="editors row-split">
+                <div className="column-split">
+                  <span className="sub-title">Deleveries</span>
+                </div>
+                <div className="column-split1">
+                  <input
+                    type="text"
+                    value={this.state.persons.deleveries}
+                    name="deleveries"
+                    className="text-editors"
+                    onChange={this.handleChange.bind(this)}
+                  />
+                </div>
+              </div>
+
+              <div className="editors row-split">
+                <div className="column-split">
+                  <span className="sub-title">location</span>
+                </div>
+                <div className="column-split1">
+                  <input
+                    type="text"
+                    name="location"
+                    value={this.state.persons.location}
                     className="text-editors"
                     onChange={this.handleChange.bind(this)}
                   />
@@ -186,42 +206,14 @@ export class UpdateProfile extends PureComponent {
 
               <div className="editors row-split">
                 <div className="column-split">
-                  <span className="sub-title">Domain</span>
+                  <span className="sub-title">Technologies</span>
                 </div>
                 <div className="column-split1">
                   <input
                     type="text"
-                    // value={this.state.persons.domain}
-                    className="text-editors"
-                  />
-                </div>
-              </div>
-
-              <div className="editors row-split">
-                <div className="column-split">
-                  <span className="sub-title">Certifications</span>
-                </div>
-                <div className="column-split1">
-                  <input
-                    type="text"
-                    name="certification"
-                    value={this.state.persons.certification}
-                    className="text-editors"
-                    onChange={this.handleChange.bind(this)}
-                  />
-                </div>
-              </div>
-
-              <div className="editors row-split">
-                <div className="column-split">
-                  <span className="sub-title">technologies</span>
-                </div>
-                <div className="column-split1">
-                  <input
-                    type="text"
-                    name="technologies"
                     value={this.state.persons.technologies}
                     className="text-editors"
+                    name="technologies"
                     onChange={this.handleChange.bind(this)}
                   />
                 </div>
@@ -229,28 +221,15 @@ export class UpdateProfile extends PureComponent {
 
               <div className="editors row-split">
                 <div className="column-split">
-                  <span className="sub-title">Desired Location</span>
+                  <span className="sub-title">dob</span>
                 </div>
                 <div className="column-split1">
                   <input
                     type="text"
-                    name="location"
-                    value={this.state.persons.location}
+                    name="dob"
+                    value={this.state.persons.dob}
                     className="text-editors"
                     onChange={this.handleChange.bind(this)}
-                  />
-                </div>
-              </div>
-
-              <div className="editors row-split">
-                <div className="column-split">
-                  <span className="sub-title">Desired Industry</span>
-                </div>
-                <div className="column-split1">
-                  <input
-                    type="text"
-                    // value={this.state.persons.industry}
-                    className="text-editors"
                   />
                 </div>
               </div>
@@ -262,7 +241,12 @@ export class UpdateProfile extends PureComponent {
                 <div className="column-split1">
                   <div className="file is-info">
                     <label className="file-label">
-                      <input className="file-input" type="file" name="resume" />
+                      <input
+                        className="file-input"
+                        type="file"
+                        name="photo"
+                        ref={this.photo}
+                      />
                       <span className="file-cta">
                         <span className="file-icon">
                           <i className="fas fa-upload" />
@@ -276,12 +260,18 @@ export class UpdateProfile extends PureComponent {
 
               <div className="editors row-split">
                 <div className="column-split">
-                  <span className="sub-title">Upload Resume</span>
+                  <span className="sub-title">Upload certifications</span>
                 </div>
                 <div className="column-split1">
                   <div className="file is-info">
                     <label className="file-label">
-                      <input className="file-input" type="file" name="resume" />
+                      <input
+                        className="file-input"
+                        type="file"
+                        name="certifications"
+                        multiple
+                        ref={this.certifications}
+                      />
                       <span className="file-cta">
                         <span className="file-icon">
                           <i className="fas fa-upload" />
@@ -308,4 +298,11 @@ export class UpdateProfile extends PureComponent {
   }
 }
 
-export default UpdateProfile;
+export default connect(
+  null,
+  dispacth => ({
+    update(id, user) {
+      return dispacth(update(id, user));
+    }
+  })
+)(UpdateProfile);

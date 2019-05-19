@@ -7,7 +7,6 @@ import "./index.css";
 export class ProfileList extends PureComponent {
   constructor(props) {
     super(props);
-
     this.renderTrainers = this.renderTrainers.bind(this);
   }
 
@@ -20,11 +19,6 @@ export class ProfileList extends PureComponent {
       return this.props.users.map(list => (
         <div className="card card_block" key={list._id}>
           <header className="card-header header_block">
-            <Link to={`pdf/${list._id}`}>
-              <p className="card-header-title header_title_block">
-                {list.name}
-              </p>
-            </Link>
             <button className="header_edit header_delete">&#128465;</button>
             <Link to={`update/${list._id}`} className="header_edit edit">
               &#x270E;
@@ -35,16 +29,12 @@ export class ProfileList extends PureComponent {
               <div className="columns is-mobile">
                 <div className="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
                   <img
-                    src={`https://pure-wave-75808.herokuapp.com/${list.photo}`}
+                    src={`https://www.quickensoftwaresupport.com/wp-content/uploads/2018/02/client-manager.jpg`}
                     alt={list.photo}
                     className="image_profileList"
                   />
                 </div>
                 <div className="column">
-                  <span>
-                    <b>Qualification:</b> {list._id}
-                  </span>
-                  <br />
                   <span>
                     <b>Experience:</b> {list.experience}
                   </span>
@@ -56,6 +46,10 @@ export class ProfileList extends PureComponent {
                   <span>
                     <b>Designation:</b> {list.designation}
                   </span>
+                  <br />
+                  <Link className="button is-info" to={`/pdf/${list._id}`}>
+                    Details
+                  </Link>
                 </div>
               </div>
             </div>
@@ -67,7 +61,6 @@ export class ProfileList extends PureComponent {
   }
 
   render() {
-    console.log(this.props.users[0]);
     return <div>{this.renderTrainers()}</div>;
   }
 }

@@ -9,11 +9,13 @@ module.exports = {
       secure: false,
       requireTLS: true,
       auth: {
-        user: config.nodemialer.email,
+        user: config.nodemailer.email,
         pass: config.nodemailer.pass
       }
     });
-    const link = "http://localhost:3000/confirmation_mail/" + confirmationMail;
+    const link =
+      "https://pure-wave-75808.herokuapp.com/confirmation_mail/" +
+      confirmationMail;
     try {
       let info = await transporter.sendMail({
         from: "testemail400@gmail.com",

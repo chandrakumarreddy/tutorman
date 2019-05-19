@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { register } from "../../actions";
 import "./index.css";
 
 export class Register extends PureComponent {
@@ -7,45 +8,36 @@ export class Register extends PureComponent {
     super(props);
 
     this.state = {
-      persons: {
-        name: "",
-        phone: "",
-        designation: "",
-        email: "",
-        domain: ""
-      }
+      name: "",
+      phone: "",
+      designation: "",
+      email: "",
+      domain: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
+    const { name, value } = event.target;
     this.setState({
-      persons: Object.assign({}, this.state.persons, {
-        [event.target.name]: event.target.value
-      })
+      [name]: value
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-	const { persons } = this.state;
-
-    axios
-      .post(`http://localhost:3000/register`, persons)
-      .then(response => {
-        return response.status(200);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.props
+      .register(this.state)
+      .then(() => this.props.history.push("/"))
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
       <div className="registerWrapper">
         <form onSubmit={this.handleSubmit}>
-          <div className="card">
+          <div className="card card_register">
             <div className="content card-custom-top">
               <div className="field is-horizontal">
                 <div className="field-label is-normal">
@@ -59,6 +51,7 @@ export class Register extends PureComponent {
                         type="text"
                         placeholder="Name"
                         name="name"
+                        value={this.state.name}
                         onChange={this.handleChange.bind(this)}
                       />
                     </p>
@@ -77,6 +70,7 @@ export class Register extends PureComponent {
                         type="email"
                         placeholder="Email"
                         name="email"
+                        value={this.state.email}
                         onChange={this.handleChange.bind(this)}
                       />
                     </p>
@@ -95,6 +89,7 @@ export class Register extends PureComponent {
                         type="text"
                         placeholder="Phone"
                         name="phone"
+                        value={this.state.phone}
                         onChange={this.handleChange.bind(this)}
                       />
                     </p>
@@ -113,6 +108,7 @@ export class Register extends PureComponent {
                         type="text"
                         placeholder="Department"
                         name="domain"
+                        value={this.state.domain}
                         onChange={this.handleChange.bind(this)}
                       />
                     </p>
@@ -131,6 +127,7 @@ export class Register extends PureComponent {
                         type="text"
                         placeholder="Designation"
                         name="designation"
+                        value={this.state.designation}
                         onChange={this.handleChange.bind(this)}
                       />
                     </p>
@@ -150,4 +147,11 @@ export class Register extends PureComponent {
   }
 }
 
-export default Register;
+export default connect(
+  null,
+  dispatch => ({
+    register(user) {
+      return dispatch(register(user));
+    }
+  })
+)(Register);

@@ -14,8 +14,9 @@ const App = props => {
 			<BrowserRouter>
 				<Header />
 				<Switch>
-					<Route path="/register" component={Home} />
-					<Route path="/update" component={UpdateProfile} />
+					<Route path="/home" component={Home} />
+					<Route path="/update" exact component={UpdateProfile} />
+					<Route path="/update/:id" component={UpdateProfile} />
 					<Route path="/register" component={Register} />
 					<Route path="/pdf" component={Pdf} />
 					<Route path="/admin" component={Admin} />

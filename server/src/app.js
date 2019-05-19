@@ -51,9 +51,7 @@ app.route("/signin").post((req, res) => {
 });
 
 app.get("/confirmation_mail/:id", (req, res) => {
-	return res.status(200).json({
-		redirect: "/"
-	});
+	return res.redirect("http://localhost:8080");
 });
 
 app.listen(PORT, () => console.log(`server is listening at ${PORT}`));

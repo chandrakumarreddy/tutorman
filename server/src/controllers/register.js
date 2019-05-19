@@ -19,16 +19,24 @@ module.exports = {
 
   async update(req, res) {
     try {
+      // const user = await User.findOneAndUpdate(
+      //   { _id: req.params.id },
+      //   {
+      //     $set: Object.assign({}, req.body, {
+      //       photo: req.files.photo.map(item => item.filename)[0],
+      //       certification: req.files.certification.map(item => item.filename)
+      //     })
+      //   },
+      //   { returnNewDocument: true }
+      // );
       const user = await User.findOneAndUpdate(
         { _id: req.params.id },
         {
-          $set: Object.assign({}, req.body, {
-            photo: req.files.photo.map(item => item.filename)[0],
-            certification: req.files.certification.map(item => item.filename)
-          })
+          $set: req.body
         },
-        { returnNewDocument: true }
+        { new: true }
       );
+      console.log("user after", user);
       if (user) {
         return res.status(204).json({
           message: "updated"
@@ -36,7 +44,7 @@ module.exports = {
       }
     } catch (err) {
       return res.status(500).json({
-        error: "internal server error"
+        error: err.message
       });
     }
   },
@@ -45,9 +53,7 @@ module.exports = {
     try {
       const users = await User.find({});
       return res.status(200).json({
-        users: users.map(user =>
-          Object.assign({}, users, { user: `/users/${user._id}` })
-        )
+        users
       });
     } catch (err) {
       return res.status(500).json({

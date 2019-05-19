@@ -5,15 +5,15 @@ export class UpdateProfile extends PureComponent {
   render() {
     return (
       <div className="pdf_bottom">
-        <div class="card">
-          <div class="card-content">
-            <div class="content" />
+        <div className="card">
+          <div className="card-content">
+            <div className="content" />
             <div className="columns is-mobile">
               <div className="column">
                 <div className="editors row-split">
                   <div className="column-split">
                     <img
-                      src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX2578170.jpg"
+                      src="https://www.quickensoftwaresupport.com/wp-content/uploads/2018/02/client-manager.jpg"
                       alt=""
                       className="image_pdf"
                     />
@@ -115,14 +115,14 @@ export class UpdateProfile extends PureComponent {
               </div>
             </div>
           </div>
-          <footer class="card-footer">
-            <a href="#" class="card-footer-item">
+          <footer className="card-footer">
+            <a href="#" className="card-footer-item">
               Download
             </a>
-            <a href="#" class="card-footer-item">
+            <a href="#" className="card-footer-item">
               Chat
             </a>
-            <a href="#" class="card-footer-item">
+            <a href="#" className="card-footer-item">
               forward
             </a>
           </footer>
