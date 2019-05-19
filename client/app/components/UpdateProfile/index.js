@@ -43,14 +43,6 @@ export class UpdateProfile extends PureComponent {
   handleSubmit(e) {
     e.preventDefault();
     const { persons } = this.state;
-    console.log("persons", persons);
-    const data = { name: persons.name };
-
-    axios
-      .patch(`http://localhost:3000/patchregister/${persons._id}`, data)
-      .then(response => {
-        console.log(response);
-      });
   }
 
   render() {
