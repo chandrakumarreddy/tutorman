@@ -36,10 +36,16 @@ export class UpdateProfile extends PureComponent {
     const urlLocation = window.location.href.substring(
       window.location.href.lastIndexOf("/") + 1
     );
-    axios.get(`http://localhost:3000/usersById/${urlLocation}`).then(res => {
-      const persons = res.data;
-      this.setState({ persons });
-    });
+    if(urlLocation !== "update"){
+      axios.get(`http://localhost:3000/usersById/${urlLocation}`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
   }
 
   handleChange(event) {
@@ -53,13 +59,26 @@ export class UpdateProfile extends PureComponent {
   handleSubmit(e) {
     e.preventDefault();
     const { persons } = this.state;
-    console.log("persons", persons);
     const data = {name: persons.name}
 
-    axios.patch(`http://localhost:3000/patchregister/${persons._id}`, data)
-    .then((response) => {
-      console.log(response);
-    });
+    if(persons._id !== undefined){
+      axios.patch(`http://localhost:3000/patchregister/${persons._id}`, data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    } else {
+      axios
+      .post(`http://localhost:3000/register`, persons)
+      .then(response => {
+        return response.status(200);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
   }
 
   render() {
